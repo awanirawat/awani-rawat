@@ -8,3 +8,15 @@
 			if(trn != ''){
 				$.get("mod/getRoute.php", {trn: trn, apikey: 'plbss7025'}, function(data){
 					obj = JSON.parse(data);
+					if(obj.response_code == 200){
+						var l = obj.route.length;
+
+						$("#srcStn").val(obj.route[0].fullname);
+
+						$("#destStn").val(obj.route[l-1].fullname);
+					}else{
+						alert("Change apikey !!!");
+					}
+				});
+			}
+		});
