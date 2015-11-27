@@ -98,4 +98,9 @@ $("#destStn").on('blur', function(){
 			document.getElementById('submit').addEventListener('click', onChangeHandler);
 			
 		}
+		
+		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+			directionsService.route({
+				origin: document.getElementById('srcStn').value,
+				destination: document.getElementById('destStn').value,
 
