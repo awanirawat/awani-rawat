@@ -63,3 +63,8 @@ $("#destStn").on('blur', function(){
 				});
 			}
 		});
+		
+		function getTrains(src, dest){
+			$.get("mod/getTrainList.php", {src: src, dest: dest}, function(data){ 
+				var localObj = JSON.parse(data);
+
