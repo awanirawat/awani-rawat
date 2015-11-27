@@ -20,3 +20,14 @@
 				});
 			}
 		});
+
+
+// display control
+
+		$("#tick-box").click(function(){
+			if($(this).is(':checked')){
+				$(".hideShow").slideUp();
+			}else{
+				$(".hideShow").slideDown();
+			}
+		});
