@@ -1,0 +1,10 @@
+
+	$(document).ready(function(){
+		// statr ready document
+
+		var obj = '';
+		$("#train").on("blur", function(){
+			trn = $(this).val();
+			if(trn != ''){
+				$.get("mod/getRoute.php", {trn: trn, apikey: 'plbss7025'}, function(data){
+					obj = JSON.parse(data);
