@@ -37,3 +37,13 @@
 			if($("#tick-box").is(':checked')){
 				$.get("mod/getStnCode.php", {stnName: name}, function(data){
 					var localObj = JSON.parse(data);
+					$nearSrc = JSON.parse(data);
+					if(localObj.response_code == 200){
+						$srcStnCode = localObj.stations[0].code;
+						
+					}else{
+						alert("Change apikey !!!");
+					}
+				});
+			}
+		});
