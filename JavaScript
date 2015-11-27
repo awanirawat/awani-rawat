@@ -91,3 +91,11 @@ $("#destStn").on('blur', function(){
 			center: {lat: 30.3180, lng: 78.0290}
 		});
 		directionsDisplay.setMap(map);
+		
+		var onChangeHandler = function() {
+			calculateAndDisplayRoute(directionsService, directionsDisplay);
+		};
+			document.getElementById('submit').addEventListener('click', onChangeHandler);
+			
+		}
+
