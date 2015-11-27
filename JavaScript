@@ -31,3 +31,9 @@
 				$(".hideShow").slideDown();
 			}
 		});
+		
+		$("#srcStn").on('blur', function(){
+			var name = $(this).val();
+			if($("#tick-box").is(':checked')){
+				$.get("mod/getStnCode.php", {stnName: name}, function(data){
+					var localObj = JSON.parse(data);
