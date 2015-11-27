@@ -103,4 +103,7 @@ $("#destStn").on('blur', function(){
 			directionsService.route({
 				origin: document.getElementById('srcStn').value,
 				destination: document.getElementById('destStn').value,
+				travelMode: google.maps.TravelMode.DRIVING
+			}, function(response, status) {
+				if (status === google.maps.DirectionsStatus.OK) {
 
