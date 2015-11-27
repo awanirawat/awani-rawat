@@ -1,0 +1,5 @@
+<?php
+
+$url = "http://api.railwayapi.com/name_to_code/station/";
+$key = "/apikey/plbss7025/";
+
