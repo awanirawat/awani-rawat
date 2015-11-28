@@ -94,3 +94,21 @@ $(document).ready(function(){
 					}
 				});
 		}
+		
+		function getTrains(src, dest){
+
+			
+			$.get("mod/getTrainList.php", {src: src, dest: dest}, function(data){ 
+				var localObj = JSON.parse(data);
+				if(localObj.response_code == 200){
+					for(var i in localObj.train){
+						$("#trainList").append("<div class='col-xs-12 col-md-12 list'>"+localObj.train[i].number+" ("+localObj.train[i].name+") </div>");
+					}
+				}else if(localObj.response_code == 204){
+
+				}else{
+					alert("Change apikey !!!");
+				}
+			});
+		}
+
