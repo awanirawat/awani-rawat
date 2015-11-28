@@ -48,3 +48,49 @@ $(document).ready(function(){
 				});
 			}
 		});
+		
+		
+		$("#destStn").on('blur', function(){
+			var name = $(this).val();
+			if($("#tick-box").is(':checked')){
+				$.get("mod/getStnCode.php", {stnName: name}, function(data){
+					var localObj = JSON.parse(data);
+					if(localObj.response_code == 200){
+						$destStnCode = localObj.stations[0].code;
+
+						getTrains($srcStnCode, $destStnCode);
+					}else{
+						alert("Change apikey !!!");
+					}
+				});
+			}
+		});
+
+
+
+		function getSrcCode(name){ 
+			$.get("mod/getStnCode.php", {stnName: name}, function(data){ 
+					var localObj = JSON.parse(data);
+					$nearSrc = JSON.parse(data);
+					if(localObj.response_code == 200){
+						$srcStnCode = localObj.stations[0].code;
+						
+					}else{
+						alert("Change apikey !!!");
+					}
+				});
+		}
+
+
+		function getDestCode(name){ 
+			$.get("mod/getStnCode.php", {stnName: name}, function(data){
+					var localObj = JSON.parse(data);
+					if(localObj.response_code == 200){
+						$destStnCode = localObj.stations[0].code;
+
+						getTrains($srcStnCode, $destStnCode);
+					}else{
+						alert("Change apikey !!!");
+					}
+				});
+		}
